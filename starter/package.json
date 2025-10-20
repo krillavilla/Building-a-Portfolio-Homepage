@@ -1,16 +1,19 @@
 {
-    "name": "portfolio-homepage",
-    "version": "0.1.0",
+    "name": "bem-portfolio-homepage",
+    "version": "1.0.0",
     "private": true,
     "scripts": {
+        "clean": "rm -f dist/main.css dist/main.css.map",
+        "build": "sass --no-source-map --style=compressed src/scss/main.scss dist/main.css",
+        "dev": "sass --style=expanded --source-map src/scss/main.scss dist/main.css --watch",
+        "preview": "npx serve .",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "dependencies": {
-        "less-watch-compile": "^2.1.0",
         "sass": "^1.79.3"
     },
     "devDependencies": {
-        "less": "^4.2.0"
+        "serve": "^14.2.0"
     }
 }
 

@@ -1,0 +1,36 @@
+@use "../utils/utils" as u;
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  color-scheme: light dark;
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+
+body {
+  margin: 0;
+  background: u.$color-bg;
+  color: u.$color-text;
+  font-family: u.$ff-sans;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, svg, video { display: block; max-width: 100%; height: auto; }
+
+a {
+  color: u.$color-accent;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color u.$duration-normal u.$ease-standard;
+}
+
+a:hover, a:focus-visible {
+  color: u.$color-accent-contrast;
+}
+
+button, input, textarea, select { font: inherit; color: inherit; }
+
+:focus-visible { @include u.focus-ring(); }

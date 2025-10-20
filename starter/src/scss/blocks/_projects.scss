@@ -1,0 +1,97 @@
+@use "sass:map";
+@use "../utils/utils" as u;
+
+.projects {
+  padding-block: u.$space-7;
+  background: u.$color-bg;
+
+  &__title {
+    @include u.container;
+    margin-bottom: u.$space-5;
+    color: u.$color-text;
+  }
+
+  &__list {
+    @include u.container;
+    display: grid;
+    gap: u.$space-5;
+    grid-template-columns: 1fr;
+  }
+
+  &__card {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    background: u.$color-elev-1;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: u.$radius-2;
+    overflow: hidden;
+    box-shadow: u.$shadow-1;
+    transition: transform u.$duration-normal u.$ease-standard, box-shadow u.$duration-normal u.$ease-standard, border-color u.$duration-normal u.$ease-standard;
+  }
+
+  &__card:hover,
+  &__card:focus-within {
+    transform: translateY(-4px);
+    box-shadow: u.$shadow-2;
+    border-color: rgba(124,58,237,0.35);
+  }
+
+  &__image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: #0a0a0a;
+  }
+
+  &__name {
+    padding: u.$space-4 u.$space-4 0 u.$space-4;
+    color: u.$color-text;
+  }
+
+  &__desc {
+    padding: 0 u.$space-4 u.$space-4 u.$space-4;
+  }
+
+  &__cta {
+    display: inline-block;
+    margin: 0 u.$space-4 u.$space-4 u.$space-4;
+    color: u.$color-accent;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  &__actions {
+    @include u.container;
+    display: grid;
+    place-items: center;
+    margin-top: u.$space-6;
+  }
+
+  @include u.respond(md) {
+    &__list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @include u.respond(lg) {
+    &__list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* Mobile horizontal scroll with snap as an advanced CSS technique */
+  @media (max-width: calc(#{map.get(u.$bp, md)} - 0.01px)) {
+    &__list {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 80%;
+      overflow-x: auto;
+      padding-bottom: u.$space-3;
+      scroll-snap-type: x mandatory;
+      gap: u.$space-4;
+    }
+    &__card {
+      scroll-snap-align: start;
+    }
+  }
+}

@@ -2,27 +2,147 @@
 <html lang="en">
 
 <head>
-  <title>Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alex Johnson - Web Development Portfolio</title>
+  <meta name="description" content="Alex Johnson's professional web development portfolio showcasing modern frontend and fullstack projects.">
+  
   <link rel="stylesheet" href="../dist/main.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 
-<body id="body">
-  <header class="header">
+<body>
+  <!-- Skip link for accessibility -->
+  <a href="#main" class="sr-only">Skip to main content</a>
+  
+  <!-- Fixed Header with Navigation -->
+  <header class="header" role="banner">
+    <div class="header__inner">
+      <a href="#main" class="header__brand no-underline">AJ</a>
+      
+      <!-- Mobile menu toggle -->
+      <button class="header__toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+        <span>☰</span>
+      </button>
+      
+      <!-- Primary Navigation -->
+      <nav class="header__nav" aria-label="Primary">
+        <ul class="header__list" id="primary-nav">
+          <li class="header__item">
+            <a href="#projects" class="header__link">Projects</a>
+          </li>
+          <li class="header__item">
+            <a href="#skills" class="header__link">Skills</a>
+          </li>
+          <li class="header__item">
+            <a href="#resume" class="header__link">Resume</a>
+          </li>
+          <li class="header__item">
+            <a href="#contact" class="header__link">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </header>
-  <main id="main">
-    <section id="bio" class="bio">
+  
+  <!-- Main Content -->
+  <main id="main" role="main">
+    
+    <!-- Intro Banner Section -->
+    <section class="banner" aria-label="Introduction">
+      <div class="banner__content">
+        <img src="img/profile.jpg" alt="Professional headshot of Alex Johnson, web developer" class="banner__avatar">
+        <div class="banner__text">
+          <h1 class="banner__title">Alex Johnson's Web Development Portfolio</h1>
+          <p class="banner__bio">
+            Passionate full-stack developer specializing in modern JavaScript frameworks, 
+            responsive design, and accessible web applications. I love creating digital experiences 
+            that make technology more human and approachable.
+          </p>
+          <a href="#contact" class="button">Get in touch</a>
+        </div>
+      </div>
     </section>
-    <section id="latest-projects" class="latest-projects">
+    
+    <!-- Latest Projects Section -->
+    <section class="projects" id="projects" aria-label="Latest Projects">
+      <h2 class="projects__title">Latest Projects</h2>
+      
+      <div class="projects__list">
+        <!-- Project Card 1 -->
+        <article class="projects__card reveal">
+          <img src="img/project-1.jpg" alt="Screenshot of TaskFlow dashboard showing project management interface" class="projects__image">
+          <h3 class="projects__name">TaskFlow Dashboard</h3>
+          <p class="projects__desc">
+            A modern project management tool built with React and Node.js. Features real-time collaboration, 
+            drag-and-drop task management, and integrated time tracking.
+          </p>
+          <a href="#" class="projects__cta">View project</a>
+        </article>
+        
+        <!-- Project Card 2 -->
+        <article class="projects__card reveal">
+          <img src="img/project-2.jpg" alt="E-commerce website homepage for GreenMarket showing organic food products" class="projects__image">
+          <h3 class="projects__name">GreenMarket E-commerce</h3>
+          <p class="projects__desc">
+            Full-stack e-commerce platform for organic foods. Built with Next.js, featuring advanced 
+            filtering, cart persistence, and integrated payment processing with Stripe.
+          </p>
+          <a href="#" class="projects__cta">View project</a>
+        </article>
+        
+        <!-- Project Card 3 -->
+        <article class="projects__card reveal">
+          <img src="img/project-3.jpg" alt="Mobile-first responsive design showcase for WellnessTracker fitness app" class="projects__image">
+          <h3 class="projects__name">WellnessTracker Mobile App</h3>
+          <p class="projects__desc">
+            Progressive Web App for fitness tracking with offline capabilities. Features data 
+            visualization, goal setting, and social challenges. Built with Vue.js and Firebase.
+          </p>
+          <a href="#" class="projects__cta">View project</a>
+        </article>
+      </div>
+      
+      <div class="projects__actions">
+        <a href="#projects-all" class="button button--ghost">View all projects</a>
+      </div>
     </section>
+    
+    <!-- Skills Section -->
+    <section class="projects" id="skills" aria-label="Skills & Technologies">
+      <h2 class="projects__title">Skills & Technologies</h2>
+      <div class="projects__list">
+        <div class="projects__card reveal">
+          <h3 class="projects__name">Frontend Development</h3>
+          <p class="projects__desc">
+            JavaScript (ES6+), TypeScript, React, Vue.js, HTML5, CSS3, SCSS, 
+            Responsive Design, Web Accessibility (WCAG), Progressive Web Apps
+          </p>
+        </div>
+        <div class="projects__card reveal">
+          <h3 class="projects__name">Backend & Tools</h3>
+          <p class="projects__desc">
+            Node.js, Python, PostgreSQL, MongoDB, Git, Docker, AWS, 
+            RESTful APIs, GraphQL, CI/CD, Webpack, Vite
+          </p>
+        </div>
+      </div>
+    </section>
+    
   </main>
-  <footer class="footer">
+  
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <p class="footer__copy">© Alex Johnson 2025</p>
+    </div>
   </footer>
+  
+  <!-- Scripts -->
+  <script src="js/main.js" defer></script>
 </body>
 
 </html>

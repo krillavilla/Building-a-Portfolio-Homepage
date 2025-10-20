@@ -1,0 +1,27 @@
+@use "../utils/utils" as u;
+
+.container { @include u.container; }
+
+.sr-only { @include u.sr-only; }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity u.$duration-slow u.$ease-standard, transform u.$duration-slow u.$ease-standard;
+}
+.reveal.is-inview {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.no-underline { text-decoration: none; }
+
+// Reduced motion fallback
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

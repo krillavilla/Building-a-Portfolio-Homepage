@@ -1,0 +1,60 @@
+@use "../utils/utils" as u;
+
+.banner {
+  background:
+    linear-gradient(180deg, rgba(12, 16, 28, 0.7), rgba(12, 16, 28, 0.9)),
+    url("../src/img/banner.jpg") center/cover no-repeat;
+  padding-block: calc(var(--header-height) + u.$space-7) u.$space-8;
+  min-height: clamp(420px, 60vh, 720px);
+  display: grid;
+  place-items: center;
+
+  &__content {
+    @include u.container;
+    display: grid;
+    gap: u.$space-6;
+    grid-template-columns: 1fr;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__avatar {
+    width: clamp(120px, 20vw, 160px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    box-shadow: u.$shadow-2;
+    border: 3px solid rgba(255,255,255,0.2);
+    margin-inline: auto;
+  }
+
+  &__title {
+    letter-spacing: 0.2px;
+    color: u.$color-text;
+  }
+
+  &__bio {
+    max-width: 60ch;
+    margin-inline: auto;
+    font-size: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
+  }
+
+  @include u.respond(md) {
+    &__content {
+      text-align: left;
+      grid-template-columns: minmax(160px, 220px) 1fr;
+    }
+    &__avatar { margin: 0; }
+  }
+
+  /* Optional subtle animated gradient on large screens */
+  @include u.respond(lg) {
+    background-size: cover;
+    animation: bannerFloat 30s linear infinite;
+  }
+}
+
+@keyframes bannerFloat {
+  0% { background-position: 50% 0%; }
+  50% { background-position: 50% 20%; }
+  100% { background-position: 50% 0%; }
+}

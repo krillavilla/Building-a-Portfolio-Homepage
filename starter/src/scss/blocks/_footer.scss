@@ -1,0 +1,22 @@
+@use "../utils/utils" as u;
+
+.footer {
+  padding: u.$space-6 0;
+  background: u.$color-surface;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  color: u.$color-muted;
+
+  &__inner {
+    @include u.container;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: u.$space-4;
+    flex-wrap: wrap;
+  }
+
+  &__copy { 
+    font-size: 0.875rem;
+    text-align: center;
+  }
+}
